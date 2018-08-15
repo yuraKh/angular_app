@@ -1,9 +1,8 @@
-﻿const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
-
-
   module: {
     rules: [
       {
@@ -17,46 +16,29 @@ module.exports = {
       },
     ]
   },
-  
   resolve: {
     extensions: ['.ts', '.js']
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
       inject: 'body'
+    }),
+    new webpack.DefinePlugin({
+      // global app config object
+      config: JSON.stringify({
+        apiUrl: 'http://localhost:4000'
+      })
     })
   ],
-
   optimization: {
     splitChunks: {
       chunks: 'all',
     },
     runtimeChunk: true
   },
-
- /* devServer: {
-    historyApiFallback: true,
-	proxy: [{
-            context: [
-                '/',
-     			'/api',
-                '/management',
-                '/swagger-ui.html',
-                '/v2/api-docs',
-                '/h2-console',
-                '/auth'
-            ],
-            target: 'http://127.0.0.1:8080',
-            secure: false
-        },{
-            context: [
-                '/websocket'
-            ],
-            target: 'ws://127.0.0.1:8080',
-            ws: true
-        }]
-  }*/
+  devServer: {
+    historyApiFallback: true
+  }
 };
