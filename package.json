@@ -8,7 +8,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build --prod  --base-href ./ && cp CNAME dist/CNAME",
+        "build": "ng build --prod  --base-href ./ && cp CNAME dist/CNAME"
     },
     "license": "MIT",
     "dependencies": {
