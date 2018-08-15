@@ -1,0 +1,24 @@
+﻿<!-- main app container -->
+<app-navbar></app-navbar>
+<div class="row" [ngSwitch]="isAuthenticated()">
+
+<div *ngSwitchCase="true" class="col-sm-3" style="background-color:  rgba(159,180,196,0.4)">
+    <app-menu></app-menu>
+</div>
+    <div *ngSwitchCase="true" class="col-sm-9" style="alignment: center">
+
+    <div class="jumbotron">
+    <div class="container">
+                <router-outlet></router-outlet>
+        </div>
+    </div>
+    </div>
+    <div *ngSwitchCase="false" class="col-sm-12" style="alignment: center">
+
+        <div class="jumbotron">
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
