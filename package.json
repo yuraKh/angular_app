@@ -6,8 +6,9 @@
         "url": "https://github.com/cornflourblue/angular-6-jwt-authentication-example.git"
     },
     "scripts": {
-        "build": "webpack --mode production",
-        "start": "webpack --mode production"
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build --prod  --base-href ./ && cp CNAME dist/CNAME",
     },
     "license": "MIT",
     "dependencies": {
