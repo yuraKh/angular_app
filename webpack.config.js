@@ -37,9 +37,9 @@ module.exports = {
     runtimeChunk: true
   },
 
-  devServer: {
+ /* devServer: {
     historyApiFallback: true,
-	proxy: [/*{
+	proxy: [{
             context: [
                 '/',
      			'/api',
@@ -51,12 +51,12 @@ module.exports = {
             ],
             target: 'http://127.0.0.1:8080',
             secure: false
-        },*/{
+        },{
             context: [
                 '/websocket'
             ],
             target: 'ws://127.0.0.1:8080',
             ws: true
         }]
-  }
+  }*/
 };
